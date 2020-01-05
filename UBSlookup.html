@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+    <title>UBS lookup</title>
+    <style>
+        input {margin-bottom: 1rem;}
+        body{
+                color: #49176e;
+                padding-top: 2rem;
+                padding-left: 2rem;
+                padding-right: 4rem;
+                background-color: lavender;
+            }
+        .btn{ background-color: goldenrod;}
+    </style>
+    <script>
+        window.onload = function(){
+            const UbsUrl = 'https://ubookstore.com/search?keywords=';
+            let form = document.querySelector('form');
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                let sku = form.numericID.value;
+                let desc = form.description.value;
+                if(sku){
+                    window.location.href = UbsUrl + sku;
+                }else if(desc){
+                    window.location.href = UbsUrl + desc;
+                }
+            });
+        };
+    </script>
+  </head>
+  <body>
+      <h2>UBS Item Lookup</h2>
+        <form action="#">
+                <label for="sku_input">UPC/SKU/ISBN: </label>
+                <input id="sku_input" 
+                    class="form-control" 
+                    name="numericID" 
+                    type="number" 
+                    inputmode="numeric">
+            <label for="desc_input">Description: </label>
+            <input id="desc_input" 
+                   class="form-control" 
+                   name="description" 
+                   type="text">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </form>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" 
+        crossorigin="anonymous"></script>
+  </body>
+</html>
