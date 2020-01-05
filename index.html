@@ -3,6 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous">
     <title>UBS lookup</title>
     <style>
         body{
@@ -10,25 +18,13 @@
             font-size: 1.25rem;
             color: #49176e;
             background-color: lavender;
-            
             padding-left: 2rem;
             padding-right: 4rem;
         }
         div{ margin-bottom: 1rem; }
-        h2{margin: 1rem 0 1rem 0;}
-        button{
-            background-color: goldenrod;
-            padding: 0.5rem;
-            font-size: 1.5rem;
-        }
-        small{
-            color: gray;
-            font-size: 0.75rem;
-        }
-        input{
-            height: 2rem;
-            font-size: 1rem;
-        }
+        h2{ margin: 1rem 0 1rem 0; }
+        button{ background-color: goldenrod; }
+        small{ margin-bottom: 0.2rem;}
     </style>
     <script>
         window.onload = function(){
@@ -49,17 +45,26 @@
   </head>
   <body>
       <h2>UBS Item Lookup</h2>
-        <small>Enter UPC-SKU-ISBN or a text description</small>
         <form action="#">
+            <small class="form-text text-muted">
+                Enter UPC-SKU-ISBN or a text description
+            </small>
             <div>
                 <label for="sku_input">UPC-SKU-ISBN: </label>
-                <input id="sku_input" name="numericID" type="number" inputmode="numeric">
+                <input id="sku_input" 
+                       name="numericID" 
+                       type="number" 
+                       inputmode="numeric"
+                       class="form-control">
             </div>
             <div>
                 <label for="desc_input">Description: </label>
-                <input id="desc_input" name="description" type="text">
+                <input id="desc_input" 
+                       name="description" 
+                       type="text"
+                       class="form-control">
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn-lg">Submit</button>
         </form>
   </body>
 </html>
