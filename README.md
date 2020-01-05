@@ -1,5 +1,7 @@
 # UBS Catalog Lookup Tool
-[URL](https://davidthaler.github.io/ubslookup)
+
+UBS Lookup Tool: https://davidthaler.github.io/ubslookup
+
 This is a simple tool for direct lookups of items in the UBS catalog.
-It takes either by their UPC/SKU/ISBN or by a short text descriptions 
+It takes either their UPC/SKU/ISBN or a short text description
 as input and returns the UBS catalog page.
