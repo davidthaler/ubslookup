@@ -26,6 +26,7 @@
     </style>
     <script>
         window.onload = function(){
+            document.getElementById('sku_input').focus();
             const UbsUrl = 'https://ubookstore.com/search?keywords=';
             let form = document.querySelector('form');
             form.addEventListener('submit', event => {
