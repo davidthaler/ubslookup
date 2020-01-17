@@ -14,9 +14,9 @@
             font-size: 1.25rem;
             background-color: lavender;
             padding-left: 2rem;
-            padding-right: 4rem;
+            padding-right: 2rem;
         }
-        div{ margin-bottom: 1rem; }
+        div{ margin-bottom: 0.5rem; }
         h2{ margin: 1rem 0 1rem 0; }
         button{ background-color: goldenrod; }
         small{
@@ -26,19 +26,16 @@
     </style>
     <script>
         window.onload = function(){
-            document.getElementById('sku_input').focus();
             const UbsUrl = 'https://ubookstore.com/search?keywords=';
             let form = document.querySelector('form');
-            form.addEventListener('submit', event => {
-                event.preventDefault();
-                let sku = form.numericID.value;
-                let desc = form.description.value;
-                if(sku){
-                    window.location.href = UbsUrl + sku;
-                }else if(desc){
-                    window.location.href = UbsUrl + desc;
-                }
-            });
+            document.getElementById('submit_number')
+                    .addEventListener('click', function(){
+                        window.location.href = UbsUrl + form.numericID.value;
+                    });
+            document.getElementById('submit_text')
+                    .addEventListener('click', function(){
+                        window.location.href = UbsUrl + form.description.value;
+                    });
         };
     </script>
   </head>
@@ -48,22 +45,35 @@
             <small class="form-text text-muted">
                 Enter UPC-SKU or a description
             </small>
-            <div>
-                <label for="sku_input">UPC-SKU-ISBN: </label>
-                <input id="sku_input" 
-                       name="numericID" 
-                       type="number" 
-                       inputmode="numeric"
-                       class="form-control">
-            </div>
-            <div>
-                <label for="desc_input">Description: </label>
-                <input id="desc_input" 
-                       name="description" 
-                       type="text"
-                       class="form-control">
-            </div>
-            <button type="submit" class="btn-lg">Submit</button>
+            <label for="sku_input">UPC-SKU-ISBN: 
+                <div class="input-group">
+                    <input id="sku_input" 
+                        name="numericID" 
+                        type="number" 
+                        inputmode="numeric"
+                        class="form-control"
+                        placeholder="UPC or SKU">
+                    <div class="input-group-append">
+                        <button type="button" id="submit_number" class="btn btn-primary">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </label>
+            <label for="desc_input">Description: 
+                <div class="input-group">
+                    <input id="desc_input" 
+                        name="description" 
+                        type="text"
+                        class="form-control"
+                        placeholder="Item description">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="submit_text">
+                            Search
+                        </button>
+                    </div>
+                </div>
+            </label>
         </form>
   </body>
 </html>
