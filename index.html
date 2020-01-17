@@ -16,7 +16,7 @@
             padding-left: 2rem;
             padding-right: 2rem;
         }
-        div{ margin-bottom: 0.5rem; }
+        div.input-line{ margin-bottom: 0.25rem; }
         h2{ margin: 1rem 0 1rem 0; }
         button{ background-color: goldenrod; }
         small{
@@ -36,44 +36,64 @@
                     .addEventListener('click', function(){
                         window.location.href = UbsUrl + form.description.value;
                     });
+            document.getElementById('clearBtn')
+                    .addEventListener('click', function(){
+                        form.numericID.value = '';
+                        form.description.value = '';
+                    });
         };
     </script>
   </head>
   <body>
       <h2>UBS Item Lookup</h2>
         <form action="#">
-            <small class="form-text text-muted">
-                Enter UPC-SKU or a description
-            </small>
-            <label for="sku_input">UPC-SKU-ISBN: 
-                <div class="input-group">
-                    <input id="sku_input" 
-                        name="numericID" 
-                        type="number" 
-                        inputmode="numeric"
-                        class="form-control"
-                        placeholder="UPC or SKU">
-                    <div class="input-group-append">
-                        <button type="button" id="submit_number" class="btn btn-primary">
-                            Search
-                        </button>
-                    </div>
+            <div class="row">  
+                <div class="col-9">
+                    <small class="form-text text-muted">
+                        Enter UPC-SKU or a description
+                    </small>
                 </div>
-            </label>
-            <label for="desc_input">Description: 
-                <div class="input-group">
-                    <input id="desc_input" 
-                        name="description" 
-                        type="text"
-                        class="form-control"
-                        placeholder="Item description">
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="submit_text">
-                            Search
-                        </button>
-                    </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-danger btn-sm" id="clearBtn">
+                        Clear
+                    </button>
                 </div>
-            </label>
+            </div>
+            <div class="input-line">
+                <label for="sku_input">UPC-SKU-ISBN: 
+                    <div class="input-group">
+                        <input id="sku_input" 
+                            name="numericID" 
+                            type="number" 
+                            inputmode="numeric"
+                            class="form-control"
+                            placeholder="UPC or SKU">
+                        <div class="input-group-append">
+                            <button type="button" id="submit_number" 
+                                        class="btn btn-primary">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <div class="input-line">
+                <label for="desc_input">Description: 
+                    <div class="input-group">
+                        <input id="desc_input" 
+                            name="description" 
+                            type="text"
+                            class="form-control"
+                            placeholder="Item description">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" 
+                                            id="submit_text">
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </label>
+            </div>
         </form>
   </body>
 </html>
