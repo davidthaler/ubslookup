@@ -15,19 +15,37 @@
                 background-color: lavender;
                 padding: 1rem 2rem;
             }
-            h2{ margin-bottom: 1rem;}
-            small{ margin-bottom: 0.25rem;}
+            iframe{
+                background-color: white;
+                height: 50vh;
+            }
         </style>
+        <script>
+            window.addEventListener('load', function(){
+                const skuform = document.getElementById('skuform')
+                const textform = document.getElementById('textform')
+                const iframe = document.getElementById('ubsframe')
+                const SEARCH_URL = 'https://www.ubookstore.com/search?keywords='
+                skuform.addEventListener('submit', function(e){
+                    e.preventDefault()
+                    iframe.src = SEARCH_URL + this.sku.value
+                })
+                textform.addEventListener('submit', function(e){
+                    e.preventDefault()
+                    iframe.src = SEARCH_URL + this.description.value
+                })
+            })
+        </script>
     </head>
     <body>
         <h2>UBS Item Lookup</h2>
-        <form action="https://ubookstore.com/search?">
+        <form id="skuform">
             <small class="form-text text-muted">
                 Enter UPC-SKU or a description
             </small>
             <label>UPC-SKU-ISBN: 
                 <div class="input-group">
-                    <input type="number" name="keywords" inputmode="numeric"
+                    <input type="number" name="sku" inputmode="numeric"
                             class="form-control" placeholder="UPC or SKU">
                     <div class="input-group-append">
                         <button type="submit" class="btn btn-primary">
@@ -37,10 +55,10 @@
                 </div>
             </label>
         </form>
-        <form action="https://ubookstore.com/search?">
+        <form id="textform" class="mb-2">
             <label>Description: 
                 <div class="input-group">
-                    <input type="text" name="keywords" class="form-control" 
+                    <input type="text" name="description" class="form-control" 
                             placeholder="Item description">
                     <div class="input-group-append">
                         <button class="btn btn-primary" type="submit">
@@ -50,5 +68,6 @@
                 </div>
             </label>
         </form>
+        <iframe id="ubsframe" src="https://www.ubookstore.com"></iframe>
     </body>
 </html>
