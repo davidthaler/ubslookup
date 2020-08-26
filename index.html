@@ -16,6 +16,12 @@
                 background-color: lavender;
                 padding: 1rem 2rem;
             }
+            a{
+                text-decoration-line: none;
+            }
+            .scan-icon{
+                height: 1.5em;
+            }
             iframe{
                 background-color: white;
                 height: 50vh;
@@ -41,7 +47,9 @@
     <body>
         <h2>UBS Item Lookup</h2>
         <div>
-            <a href="zxing://scan/?ret=https%3A%2F%2Fwww.ubookstore.com%2Fsearch%3Fkeywords%3D%7BCODE%7D">Scan</a>
+            <a href="zxing://scan/?ret=https%3A%2F%2Fwww.ubookstore.com%2Fsearch%3Fkeywords%3D%7BCODE%7D">
+                Scan <img src="favicon.svg" class="scan-icon">
+            </a>
         </div>
         <form id="skuform">
             <small class="form-text text-muted">
